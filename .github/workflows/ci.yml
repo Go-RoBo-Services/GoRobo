@@ -148,7 +148,8 @@ jobs:
       - name: Build with Next.js
         run: pnpm build
         env:
-          NEXT_PUBLIC_AMAZE_API_URL: ${{ secrets.NEXT_PUBLIC_AMAZE_API_URL || 'https://api.amazecc.com' }}
+          NEXT_PUBLIC_GOROBO_API_URL: ${{ secrets.NEXT_PUBLIC_GOROBO_API_URL || 'https://go-robo.vercel.app' }}
+          NEXT_PUBLIC_AMAZE_API_URL: ${{ secrets.NEXT_PUBLIC_AMAZE_API_URL || 'https://go-robo.vercel.app' }}
 
       - name: Verify static export output
         run: test -f out/index.html && echo "Export OK"

@@ -79,15 +79,14 @@ export default function AboutPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Made possible by {AMAZE_CP_NAME}</CardTitle>
+              <CardTitle>About Go RoBo Services</CardTitle>
               <CardDescription>{AMAZE_CP_TAGLINE}</CardDescription>
             </CardHeader>
             <CardContent>
               <Text>
-                {SITE_NAME} is proudly supported by <span className="font-semibold">{AMAZE_CP_NAME}</span>, the
-                organisation that builds and maintains the amazeui design system this site is built on. Their
-                support covers the software, tooling and maintenance that keep this catalog running &mdash; so the
-                store can stay open source, free to use, and free to improve.
+                {SITE_NAME} is built and maintained by <span className="font-semibold">{AMAZE_CP_NAME}</span>.
+                Our goal is to make discovering, prototyping, and sourcing robotics components, microcontrollers,
+                sensors, and development kits frictionless for students, makers, and engineering teams.
               </Text>
             </CardContent>
             <CardFooter className="flex flex-wrap items-center gap-3">

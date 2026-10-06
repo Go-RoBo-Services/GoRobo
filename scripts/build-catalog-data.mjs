@@ -27,18 +27,14 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
-// Direct Render origin — bypasses Cloudflare (which 403s datacenter IPs like
-// Vercel/GitHub runners on api.amazecc.com). Kept as a built-in fallback so
-// Vercel builds work even when CATALOG_SNAPSHOT_API_URL isn't configured.
-const DIRECT_ORIGIN = "https://amazecc-api-jrsp.onrender.com";
-
-// Candidate API bases, deduped, in priority order: explicit direct origin
-// first, then the public URL last (most likely to be WAF-blocked).
+// Candidate API bases, deduped, in priority order: explicit snapshot origin
+// first, then local or public GoRoBo API URLs.
 const API_BASES = [
   process.env.CATALOG_SNAPSHOT_API_URL,
-  DIRECT_ORIGIN,
+  process.env.NEXT_PUBLIC_GOROBO_API_URL,
+  process.env.GOROBO_API_URL,
   process.env.NEXT_PUBLIC_AMAZE_API_URL,
-  "https://api.amazecc.com",
+  "http://localhost:3301",
 ]
   .filter(Boolean)
   .map((u) => u.replace(/\/+$/, ""))
@@ -192,7 +188,7 @@ async function main() {
     generatedAt: new Date().toISOString(),
     apiLastUpdate: lastUpdate,
     count: items.length,
-    source: "amazecc-api",
+    source: "gorobo-api",
     files: { index: `./${indexFile}` },
   };
   fs.writeFileSync(

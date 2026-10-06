@@ -5,9 +5,9 @@ administration feature. Spans three repositories:
 
 | Repo | Role | Live URL |
 |---|---|---|
-| `GoRobo` | Customer-facing storefront (static export) | — (local, `output: 'export'`) |
-| `AmazeCC-API` | Next.js 16 API backend (Postgres via `pg` Pool) | https://amazecc-api.vercel.app |
-| `AmazeCC-Dashboard` | Admin portal ("AmazeCC Admin", static export, single-page shell) | https://admin.amazecc.com |
+| `GoRobo` | Customer-facing storefront (static export) | https://go-robo.vercel.app |
+| `GoRobo-Backend` | Hono + TypeScript API backend (Postgres / SQLite) | http://localhost:3301 |
+| `GoRobo-Dashboard` | Admin portal (inventory, bill processor, wallet) | — |
 
 ## Documents
 

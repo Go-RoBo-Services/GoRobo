@@ -54,13 +54,12 @@ jobs:
       - name: Build catalog snapshot (static CDN data)
         run: node scripts/build-catalog-data.mjs
         env:
-          # Fetch from the direct Render origin so CI runners bypass
-          # Cloudflare's bot protection on api.amazecc.com.
-          CATALOG_SNAPSHOT_API_URL: ${{ secrets.CATALOG_SNAPSHOT_API_URL || 'https://amazecc-api-jrsp.onrender.com' }}
+          CATALOG_SNAPSHOT_API_URL: ${{ secrets.CATALOG_SNAPSHOT_API_URL || '' }}
       - name: Build with Next.js
         run: pnpm build
         env:
-          NEXT_PUBLIC_AMAZE_API_URL: ${{ secrets.NEXT_PUBLIC_AMAZE_API_URL || 'https://api.amazecc.com' }}
+          NEXT_PUBLIC_GOROBO_API_URL: ${{ secrets.NEXT_PUBLIC_GOROBO_API_URL || 'https://go-robo.vercel.app' }}
+          NEXT_PUBLIC_AMAZE_API_URL: ${{ secrets.NEXT_PUBLIC_AMAZE_API_URL || 'https://go-robo.vercel.app' }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

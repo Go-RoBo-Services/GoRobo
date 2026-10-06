@@ -1,7 +1,11 @@
 import { products as localProducts, type Product } from "@/lib/products"
 
-export const AMAZE_API_URL =
-  process.env.NEXT_PUBLIC_AMAZE_API_URL ?? "https://api.amazecc.com"
+export const GOROBO_API_URL =
+  process.env.NEXT_PUBLIC_GOROBO_API_URL ??
+  process.env.NEXT_PUBLIC_AMAZE_API_URL ??
+  "http://localhost:3301"
+
+export const AMAZE_API_URL = GOROBO_API_URL
 
 export type ApiItem = {
   id: string
@@ -35,7 +39,7 @@ export type PlacedOrder = {
 }
 
 /**
- * Fetches the live GoRoBo catalog from the AmazeCC API.
+ * Fetches the live GoRoBo catalog from the GoRoBo API.
  * Returns null (caller falls back to the bundled catalog) when the API is
  * unreachable or returns an unexpected payload.
  */
@@ -72,7 +76,7 @@ export async function fetchItems(): Promise<Product[] | null> {
 }
 
 /**
- * Places a GoRoBo order (append-only) on the AmazeCC API.
+ * Places a GoRoBo order (append-only) on the GoRoBo API.
  * Throws an Error with the server's message on failure.
  */
 export async function placeOrder(input: PlaceOrderInput): Promise<PlacedOrder> {

@@ -16,7 +16,7 @@ A back-office system for running the GoRoBo robotics store:
    - add shipment cost
    - live quote math, save quote → confirm → complete
    - download the **BOM (bill of materials) as a PDF**
-3. **Amaze Wallet** (own sidebar page) — accounting ledger:
+3. **Go RoBo Wallet** (own sidebar page) — accounting ledger:
    - margins collected → **profit**
    - GST collected → tracked under **GST**
    - raw item cost → paid to the **vendor** when the admin clicks *complete*
@@ -49,7 +49,7 @@ pending ──(edit quote)──► pending ──(confirm)──► confirmed �
 | Quote math | GST on discounted total + shipment: `taxable = subtotal − discount; gst = taxable × gst%; total = taxable + gst + shipment` |
 | GST rate | Default 18%, adjustable per order in the bill processor |
 | Margin entry | GoRoBo already has a built-in margin (`applyMargin` flat-₹ tiers). Admin can set **both** base price (raw cost) and margin (flat ₹); price = base + margin |
-| Amaze Wallet placement | Separate sidebar item (own page), gated by the same `gorobo` permission |
+| Go RoBo Wallet placement | Separate sidebar item (own page), gated by the same `gorobo` permission |
 | PDF generation | Client-side jsPDF in the Dashboard (already installed, currently unused) |
 | Wallet settlement | Any `gorobo` member can mark "customer paid" / "vendor paid" |
 
